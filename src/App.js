@@ -1,10 +1,12 @@
 import React from "react";
-import { Menu } from "semantic-ui-react";
+import { NavBar } from "./Nav";
+import { ExpenseModule } from "./ExpenseModule";
 
 function App() {
   return (
     <div className="App">
-      <Menu />
+      <NavBar />
+      <ExpenseModule />
     </div>
   );
 }

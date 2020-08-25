@@ -1,0 +1,13 @@
+.login-sign-up {
+  background-color: #2185d0 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  background-image: none !important;
+  transition: all 500ms ease-in-out !important;
+}
+
+.login-sign-up:hover {
+  background-color: #1678c2 !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
