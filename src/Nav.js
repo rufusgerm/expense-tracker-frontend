@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { Menu, Container } from "semantic-ui-react";
 import "./Nav.css";
+import { LoginModal } from "./LoginModal";
 
 const leftMenuItems = [
   { key: "expense-lists", active: true, name: "Expense Lists" },
@@ -10,36 +11,44 @@ const leftMenuItems = [
 
 export const NavBar = () => {
   const [activeItem, setActiveItem] = useState(leftMenuItems[0].key);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   return (
-    <Menu items={leftMenuItems}>
-      <Container>
-        {leftMenuItems.map((item, idx) => {
-          return (
+    <Fragment>
+      {modalOpen && <LoginModal open={modalOpen} close={closeModal} />}
+      <Menu items={leftMenuItems}>
+        <Container>
+          {leftMenuItems.map((item, idx) => {
+            return (
+              <Menu.Item
+                key={item.key + idx}
+                name={item.key}
+                active={activeItem === item.key}
+                onClick={() => setActiveItem(item.key)}
+              >
+                {item.name}
+              </Menu.Item>
+            );
+          })}
+        </Container>
+        <Container>
+          <Menu.Menu position="right" color="blue">
             <Menu.Item
-              key={item.key + idx}
-              name={item.key}
-              active={activeItem === item.key}
-              onClick={() => setActiveItem(item.key)}
+              className="login-sign-up"
+              name={`login-sign-up`}
+              onClick={() => {
+                setModalOpen(true);
+              }}
             >
-              {item.name}
+              Login/Sign-Up
             </Menu.Item>
-          );
-        })}
-      </Container>
-      <Container>
-        <Menu.Menu position="right" color="blue">
-          <Menu.Item
-            className="login-sign-up"
-            name={`login-sign-up`}
-            onClick={() => {
-              alert("No Login Yet...");
-            }}
-          >
-            Login/Sign-Up
-          </Menu.Item>
-        </Menu.Menu>
-      </Container>
-    </Menu>
+          </Menu.Menu>
+        </Container>
+      </Menu>
+    </Fragment>
   );
 };

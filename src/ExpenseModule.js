@@ -1,7 +1,8 @@
 import React from "react";
-import { Segment } from "semantic-ui-react";
+import { Segment, Header } from "semantic-ui-react";
 import "./ExpenseModule.css";
 import { ExpenseItem } from "./ExpenseItem";
+import { BudgetBar } from "./BudgetBar";
 
 const expenseItems = [
   {
@@ -31,8 +32,12 @@ export const ExpenseModule = () => {
   return (
     <div className="expense-module">
       <Segment.Group>
-        <Segment size="huge">Top</Segment>{" "}
-        {/* Should be componentized to a total budget bar */}
+        <Segment size="huge">
+          <Header as="h2" textAlign="center">
+            Jeremy's Discretionary
+          </Header>
+          <BudgetBar />
+        </Segment>
         {expenseItems.map((item) => {
           return <ExpenseItem item={item} />;
         })}
