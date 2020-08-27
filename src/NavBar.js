@@ -1,7 +1,9 @@
 import React, { useState, Fragment } from "react";
 import { Menu, Container } from "semantic-ui-react";
-import "./Nav.css";
+
+import "./NavBar.css";
 import { LoginModal } from "./LoginModal";
+import { useExpenseState } from "./ExpenseAppProvider";
 
 const leftMenuItems = [
   { key: "expense-lists", active: true, name: "Expense Lists" },
@@ -9,9 +11,10 @@ const leftMenuItems = [
   { key: "main-list", name: "Main List" },
 ];
 
-export const NavBar = () => {
+export const NavBar = (props) => {
+  const state = useExpenseState();
   const [activeItem, setActiveItem] = useState(leftMenuItems[0].key);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(props.isLoggedIn);
 
   const closeModal = () => {
     setModalOpen(false);
@@ -20,7 +23,7 @@ export const NavBar = () => {
   return (
     <Fragment>
       {modalOpen && <LoginModal open={modalOpen} close={closeModal} />}
-      <Menu items={leftMenuItems}>
+      <Menu>
         <Container>
           {leftMenuItems.map((item, idx) => {
             return (
@@ -44,7 +47,7 @@ export const NavBar = () => {
                 setModalOpen(true);
               }}
             >
-              Login/Sign-Up
+              {state.isLoggedIn ? `Hello, ` + state.username : `Login/Sign-Up`}
             </Menu.Item>
           </Menu.Menu>
         </Container>

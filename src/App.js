@@ -1,13 +1,14 @@
 import React from "react";
-import { NavBar } from "./Nav";
+import { NavBar } from "./NavBar";
 import { ExpenseModule } from "./ExpenseModule";
+import { ExpenseAppProvider } from "./ExpenseAppProvider";
 
 function App() {
   return (
-    <div className="App">
+    <ExpenseAppProvider>
       <NavBar />
       <ExpenseModule />
-    </div>
+    </ExpenseAppProvider>
   );
 }
 
