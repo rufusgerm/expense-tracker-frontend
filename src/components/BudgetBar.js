@@ -1,12 +1,12 @@
 import React from "react";
 import { Progress } from "semantic-ui-react";
 
-export const BudgetBar = () => {
+export const BudgetBar = (props) => {
   return (
     <Progress
       size="large"
-      value={90}
-      total={100}
+      value={props.budgetUsed}
+      total={props.budgetMax}
       progress="ratio"
       indicating
       active={false}

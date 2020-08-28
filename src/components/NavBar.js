@@ -6,9 +6,9 @@ import { LoginModal } from "./LoginModal";
 import { useExpenseState } from "./ExpenseAppProvider";
 
 const leftMenuItems = [
-  { key: "expense-lists", active: true, name: "Expense Lists" },
+  { key: "all-lists", name: "All Lists" },
+  { key: "expense-list", active: true, name: "Expense List" },
   { key: "about-tracker", name: "About Tracker" },
-  { key: "main-list", name: "Main List" },
 ];
 
 export const NavBar = (props) => {

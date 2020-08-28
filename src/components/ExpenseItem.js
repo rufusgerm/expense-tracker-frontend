@@ -1,11 +1,12 @@
 import React from "react";
 import { Segment, Grid } from "semantic-ui-react";
 import { ExpenseBtn } from "./ExpenseBtn";
+import "./ExpenseItem.css";
 
 export const ExpenseItem = (props) => {
   return (
-    <Segment.Group key={props.item.id}>
-      <Segment color={props.item.expense ? "red" : "green"}>
+    <Segment.Group className="expense-item" key={props.item.id}>
+      <Segment color={props.item.isExpense ? "red" : "green"}>
         <Grid style={{ maxHeight: "50px" }}>
           <Grid.Column
             textAlign="center"
@@ -14,7 +15,7 @@ export const ExpenseItem = (props) => {
               fontSize: "18px",
             }}
           >
-            {(props.item.expense ? `-` : `+`) + `$` + props.item.value}
+            {(props.item.isExpense ? `-` : `+`) + `$` + props.item.cost}
           </Grid.Column>
           <Grid.Column
             textAlign="center"

@@ -1,0 +1,9 @@
+.expense-item {
+  transform: scale(1.01);
+  transition: transform 250ms ease-in-out;
+}
+
+.expense-item:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}

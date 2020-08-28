@@ -1,10 +1,11 @@
 import React, { useReducer, useContext } from "react";
+import expenseLists from "../data/FakeData.json";
 
 const ExpenseStateContext = React.createContext();
 const ExpenseDispatchContext = React.createContext();
 
 const initial_state = {
-  expenses_lists: [],
+  expenses_lists: expenseLists,
   isLoggedIn: false,
   isLoading: false,
   username: "",

@@ -1,0 +1,52 @@
+{
+  "expenseLists": [
+    {
+      "listName": "Jeremy's Discretionary",
+      "budgetMax": 100,
+      "doesAllowRollovers": true,
+      "expenseItems": [
+        {
+          "id": 2,
+          "name": "Water Bottle",
+          "cost": 15.0,
+          "isRollover": true,
+          "isExpense": true
+        },
+        {
+          "id": 3,
+          "name": "Cat Money",
+          "cost": 30.0,
+          "isRollover": true,
+          "isExpense": false
+        },
+        {
+          "id": 4,
+          "name": "LCD Monitor",
+          "cost": 69.99,
+          "isRollover": true,
+          "isExpense": true
+        }
+      ]
+    },
+    {
+      "listName": "Amy's Discretionary",
+      "budgetMax": 100,
+      "expenseItems": [
+        {
+          "id": 1,
+          "name": "UPF Shirt",
+          "cost": 35.0,
+          "isRollover": true,
+          "isExpense": true
+        },
+        {
+          "id": 3,
+          "name": "Cat Money",
+          "cost": 30.0,
+          "isRollover": true,
+          "isExpense": false
+        }
+      ]
+    }
+  ]
+}
