@@ -1,19 +1,26 @@
 import React from "react";
 import { Segment, Header } from "semantic-ui-react";
-import "./ExpenseModule.css";
-import { ExpenseItem } from "./ExpenseItem";
+import { ListItem } from "./ListItem";
 import { BudgetBar } from "./BudgetBar";
-import expensesList from "../data/FakeData.json";
+import { useExpenseState } from "./ExpenseAppProvider";
+import "./ExpenseModule.css";
 
 export const ExpenseModule = () => {
-  const expenseObject = expensesList.expenseLists[1];
+  const state = useExpenseState();
+  const expenseObject = state.selectedList;
   const budgetMax = expenseObject.budgetMax;
 
   let budgetUsed = budgetMax;
 
-  const budgetComponents = expenseObject.expenseItems.map((item) => {
-    budgetUsed += item.isExpense ? -item.cost : item.cost;
-    return <ExpenseItem key={item.name + item.id} item={item} />;
+  const expenseItemComponents = expenseObject.expenseItems.map((expense) => {
+    budgetUsed += expense.isExpense ? -expense.cost : expense.cost;
+    return (
+      <ListItem
+        key={expense.expenseName + expense.id}
+        type={`item`}
+        item={expense}
+      />
+    );
   });
 
   return (
@@ -25,7 +32,7 @@ export const ExpenseModule = () => {
           </Header>
           <BudgetBar budgetUsed={budgetUsed.toFixed(2)} budgetMax={budgetMax} />
         </Segment>
-        {budgetComponents}
+        {expenseItemComponents}
       </Segment.Group>
     </div>
   );

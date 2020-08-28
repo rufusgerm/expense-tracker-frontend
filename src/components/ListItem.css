@@ -1,9 +1,9 @@
-.expense-item {
+.list-item {
   transform: scale(1.01);
   transition: transform 250ms ease-in-out;
 }
 
-.expense-item:hover {
+.list-item:hover {
   cursor: pointer;
   transform: scale(1.02);
 }

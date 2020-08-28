@@ -1,27 +1,28 @@
 {
   "expenseLists": [
     {
+      "id": 0,
       "listName": "Jeremy's Discretionary",
       "budgetMax": 100,
       "doesAllowRollovers": true,
       "expenseItems": [
         {
-          "id": 2,
-          "name": "Water Bottle",
+          "id": 0,
+          "expenseName": "Water Bottle",
           "cost": 15.0,
           "isRollover": true,
           "isExpense": true
         },
         {
-          "id": 3,
-          "name": "Cat Money",
+          "id": 1,
+          "expenseName": "Cat Money",
           "cost": 30.0,
           "isRollover": true,
           "isExpense": false
         },
         {
-          "id": 4,
-          "name": "LCD Monitor",
+          "id": 2,
+          "expenseName": "LCD Monitor",
           "cost": 69.99,
           "isRollover": true,
           "isExpense": true
@@ -29,19 +30,20 @@
       ]
     },
     {
+      "id": 1,
       "listName": "Amy's Discretionary",
       "budgetMax": 100,
       "expenseItems": [
         {
-          "id": 1,
-          "name": "UPF Shirt",
+          "id": 0,
+          "expenseName": "UPF Shirt",
           "cost": 35.0,
           "isRollover": true,
           "isExpense": true
         },
         {
-          "id": 3,
-          "name": "Cat Money",
+          "id": 1,
+          "expenseName": "Cat Money",
           "cost": 30.0,
           "isRollover": true,
           "isExpense": false

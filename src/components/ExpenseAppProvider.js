@@ -5,7 +5,8 @@ const ExpenseStateContext = React.createContext();
 const ExpenseDispatchContext = React.createContext();
 
 const initial_state = {
-  expenses_lists: expenseLists,
+  expenseLists: expenseLists.expenseLists,
+  selectedList: null,
   isLoggedIn: false,
   isLoading: false,
   username: "",
@@ -39,6 +40,12 @@ const expensesReducer = (state, action) => {
     }
     case "logout": {
       return initial_state;
+    }
+    case "listSelected": {
+      return {
+        ...state,
+        selectedList: expenseLists.expenseLists[action.payload],
+      };
     }
     default: {
       return {

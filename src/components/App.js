@@ -1,14 +1,17 @@
 import React from "react";
+
+import { useExpenseState } from "./ExpenseAppProvider";
 import { NavBar } from "./NavBar";
+import { HomeModule } from "./HomeModule";
 import { ExpenseModule } from "./ExpenseModule";
-import { ExpenseAppProvider } from "./ExpenseAppProvider";
 
 function App() {
+  const state = useExpenseState();
   return (
-    <ExpenseAppProvider>
+    <React.Fragment>
       <NavBar />
-      <ExpenseModule />
-    </ExpenseAppProvider>
+      {!state.selectedList ? <HomeModule /> : <ExpenseModule />}
+    </React.Fragment>
   );
 }
 
