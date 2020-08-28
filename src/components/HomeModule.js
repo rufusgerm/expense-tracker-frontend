@@ -12,10 +12,9 @@ export const HomeModule = () => {
   const expenseListComponents = currentLists.map((expenseList) => {
     return (
       <ListItem
-        onClick={() => {
-          console.log(`Item Clicked! ID = ${expenseList.id}`);
-          dispatch({ type: "listSelected", payload: expenseList.id });
-        }}
+        onClick={() =>
+          dispatch({ type: "selectedList", payload: expenseList.id })
+        }
         key={expenseList.listName + expenseList.id}
         type={`list`}
         item={expenseList}

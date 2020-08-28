@@ -8,7 +8,10 @@ export const ExpenseBtn = (props) => {
         content={props.name + ` Expense ${props.type}`}
         trigger={
           <Button
-            onClick={() => alert("No function yet!")}
+            onClick={(e) => {
+              e.stopPropagation();
+              alert("No function yet!");
+            }}
             textalign="center"
             style={{ background: "none", marginTop: "5px" }}
           >

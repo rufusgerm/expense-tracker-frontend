@@ -41,10 +41,16 @@ const expensesReducer = (state, action) => {
     case "logout": {
       return initial_state;
     }
-    case "listSelected": {
+    case "selectedList": {
       return {
         ...state,
         selectedList: expenseLists.expenseLists[action.payload],
+      };
+    }
+    case "showAllLists": {
+      return {
+        ...state,
+        selectedList: null,
       };
     }
     default: {
